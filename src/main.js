@@ -559,7 +559,9 @@ function calculatePerksCost(numPerks) {
 function calculate() {
     const numPerksInput = document.getElementById("numPerks");
     const numPerks = parseInt(numPerksInput.value, 10);
-    if (!isNaN(numPerks)) {
+    if (numPerksInput.value === "0") {
+        return console.log('0');
+    } else if (!isNaN(numPerks)) {
         const perkCosts = calculatePerksCost(numPerks);
         perks_gold_cost = perkCosts.gold;
         perks_lp_cost = perkCosts.LP;
