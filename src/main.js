@@ -144,9 +144,9 @@ let needLvlForUp = 0;
 let needLvlForUpF = document.getElementById('needLvlForUpF');
 
 // лп за перки
-let perks_lp_cost = 0;
+let perks_lp_cost;
 // голды за перки
-let perks_gold_cost = 0;
+let perks_gold_cost;
 
 
 function tenLpFunc() {
@@ -591,7 +591,7 @@ function getAllLPFromTable() {
         + Number(needGoldRecovery.innerHTML)
         + Number(needGoldChange.innerHTML)
         + Number(needGoldEnchantment.innerHTML)
-        + perks_gold_cost;
+        + Number(perks_gold_cost);
 
     if (allGoldTable.innerHTML > 0) {
         allGoldTable.classList.remove('text-danger');
@@ -621,7 +621,7 @@ function getAllGoldFromTable() {
         + Number(needLPRecovery.innerHTML)
         + Number(needLPChange.innerHTML)
         + Number(needLPEnchantment.innerHTML)
-        + perks_lp_cost;
+        + Number(perks_lp_cost);
 
     if (allLPTable.innerHTML > 0) {
         allLPTable.classList.remove('text-danger');
@@ -690,6 +690,11 @@ function formula() {
             needLvlForUpF.classList.remove('text-danger');
             needLvlForUpF.classList.add('text-success');
             break;
+        default:
+            needLvlForUp = Math.ceil(Number(allLPTable.innerHTML) / 15);
+            needLvlForUpF.innerHTML = needLvlForUp;
+            needLvlForUpF.classList.remove('text-danger');
+            needLvlForUpF.classList.add('text-success');
     }
 }
 
