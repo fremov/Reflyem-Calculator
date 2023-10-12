@@ -28,9 +28,7 @@ let perks_gold_cost;
 // Проверка выбранного камня
 // Получаем все radio кнопки в форме
 let radioButtons = document.getElementsByName('stoneClass');
-
 let lastSelectedStone; // переменная для хранения последней выбранной радиокнопки
-
 radioButtons.forEach(function (radioButton) {
     radioButton.addEventListener('change', function () {
         if (radioButton.checked) {
@@ -154,18 +152,18 @@ function calculatePerksCost(numPerks) {
         totalGold += i;
     }
 
-    return { "gold": totalGold, "LP": totalLP };
+    return {"gold": totalGold, "LP": totalLP};
 }
 
 function calculate() {
-    const numPerksInput = document.getElementById("numPerks");
-    const numPerks = parseInt(numPerksInput.value, 10);
+    let numPerksInput = document.getElementById("numPerks");
+    let numPerks = parseInt(numPerksInput.value, 10);
     let perkCosts = 0;
     if (numPerksInput.value === "0") {
         // perkCosts = calculatePerksCost(numPerks);
         perks_gold_cost = 0;
         perks_lp_cost = 0
-    } else if (!isNaN(numPerks) ) {
+    } else if (!isNaN(numPerks)) {
         perkCosts = calculatePerksCost(numPerks);
         perks_gold_cost = perkCosts.gold;
         perks_lp_cost = perkCosts.LP;
@@ -277,7 +275,7 @@ function formula() {
     // расчет всех ячеек с золотом со всей таблицы
     getAllGoldFromTable();
 
-    calculate_needed_lvl();
+    lp_calc_funcs.calculate_needed_lvl();
 }
 
 races.raceArgo.addEventListener('click', change_stats_funcs.changeArgoStats);

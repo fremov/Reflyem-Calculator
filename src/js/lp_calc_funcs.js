@@ -73,9 +73,9 @@ export function twentyLpFunc() {
 export function dynamicLPFunc() {
     if (dynamicLP) {
         dynamicLpOn = false;
-        needLvlForUp = 255;
+        needLvlForUp = 25;
         twentyLp.classList.add('text-success');
-        console.log('dynamic_lp');
+        // console.log('dynamic_lp');
         chosenLevel.innerText = 'dynamicLP';
         chosenLevel.classList.remove('text-danger');
         chosenLevel.classList.add('text-success');
@@ -101,15 +101,17 @@ export function calculate_needed_lvl() {
             needLvlForUpF.innerHTML = needLvlForUp;
             needLvlForUpF.classList.remove('text-danger');
             needLvlForUpF.classList.add('text-success');
+            console.log('15')
             break;
         case 20:
             needLvlForUp = Math.ceil(Number(allLPTable.innerHTML) / Number(needLvlForUp));
             needLvlForUpF.innerHTML = needLvlForUp;
             needLvlForUpF.classList.remove('text-danger');
             needLvlForUpF.classList.add('text-success');
+            console.log('20')
             break;
-        case -1:
-            needLvlForUp = Math.ceil(Number(allLPTable.innerHTML) / Number(25));
+        case 25:
+            needLvlForUp = Math.ceil(Number(allLPTable.innerHTML) / Number(255));
             needLvlForUpF.innerHTML = needLvlForUp;
             needLvlForUpF.classList.remove('text-danger');
             needLvlForUpF.classList.add('text-success');
