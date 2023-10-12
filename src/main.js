@@ -545,26 +545,32 @@ function CalculateLPCost(currentSkillValue, countValue) {
 }
 
 function calculatePerksCost(numPerks) {
-    const costFirstPerk = 600;
-    const additionalCostPerPerk = 200;
-    let totalGold = costFirstPerk;
-    let totalLP = 5;
-    if (numPerks > 1) {
-        totalGold += additionalCostPerPerk * (numPerks - 1);
-        totalLP += (numPerks - 1) * 5;
+    if (numPerks < 1) {
+        return console.log("Неверное количество перков!");
     }
+
+    const goldCost = 600 + 200 * (numPerks - 1);
+    let totalGold = 0;
+    let totalLP = 5;
+    totalLP += (numPerks - 1) * 5;
+
+    for (let i = 600; i <= goldCost; i += 200) {
+        totalGold += i;
+    }
+
     return { "gold": totalGold, "LP": totalLP };
 }
 
 function calculate() {
     const numPerksInput = document.getElementById("numPerks");
     const numPerks = parseInt(numPerksInput.value, 10);
+    let perkCosts = 0;
     if (numPerksInput.value === "0") {
-        const perkCosts = calculatePerksCost(numPerks);
+        // perkCosts = calculatePerksCost(numPerks);
         perks_gold_cost = 0;
         perks_lp_cost = 0
     } else if (!isNaN(numPerks) ) {
-        const perkCosts = calculatePerksCost(numPerks);
+        perkCosts = calculatePerksCost(numPerks);
         perks_gold_cost = perkCosts.gold;
         perks_lp_cost = perkCosts.LP;
     } else {
