@@ -291,7 +291,3 @@ races.raceBreton.addEventListener('click', change_stats_funcs.changeBretonStats)
 
 result.addEventListener('click', formula);
 
-lp_calc_funcs.tenLP.addEventListener('click', lp_calc_funcs.tenLpFunc);
-lp_calc_funcs.fifteenLp.addEventListener('click', lp_calc_funcs.fifteenLpFunc);
-lp_calc_funcs.twentyLp.addEventListener('click', lp_calc_funcs.twentyLpFunc);
-// lp_calc_funcs.dynamicLP.addEventListener('click', lp_calc_funcs.dynamicLPFunc);

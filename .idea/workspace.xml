@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a47ba8ce-a52b-4fa6-a775-4d75e829beb1" name="Changes" comment="centered values in table">
+    <list default="true" id="a47ba8ce-a52b-4fa6-a775-4d75e829beb1" name="Changes" comment="fixed lp choose">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/lp_calc_funcs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/lp_calc_funcs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +20,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -55,7 +55,8 @@
       <updated>1697062950082</updated>
       <workItem from="1697062951534" duration="1009000" />
       <workItem from="1697097605141" duration="25484000" />
-      <workItem from="1697123994426" duration="6003000" />
+      <workItem from="1697123994426" duration="6217000" />
+      <workItem from="1697131334280" duration="714000" />
     </task>
     <task id="LOCAL-00001" summary="gold problem">
       <created>1697063195691</created>
@@ -85,7 +86,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697123484724</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fixed lp choose">
+      <created>1697131235523</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697131235523</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +115,7 @@
     <MESSAGE value="fix gold total cost" />
     <MESSAGE value="optimization" />
     <MESSAGE value="centered values in table" />
-    <option name="LAST_COMMIT_MESSAGE" value="centered values in table" />
+    <MESSAGE value="fixed lp choose" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed lp choose" />
   </component>
 </project>
