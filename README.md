@@ -1,7 +1,7 @@
 # Reflyem Calculator
-##Калькулятор опыта для сборки модов [Reflyem](https://discord.gg/YjBcxfBP)##
+##Калькулятор опыта для сборки модов [Reflyem](https://discord.gg/YjBcxfBP)
 
-###Как пользоваться калькулятором###
+###Как пользоваться калькулятором
 
 1. Выбираем нужную расу персонажа:![image](https://github.com/fremov/Calculator/assets/59342062/002edfc7-30e9-478d-8843-03516d2fc8ec)
 2. Выбираем нужный камень для персонажа (): ![image](https://github.com/fremov/Calculator/assets/59342062/44e40d88-02f2-4725-b43a-be4a6cdd6df3)
