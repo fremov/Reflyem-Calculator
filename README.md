@@ -1,5 +1,5 @@
 # Reflyem Calculator
-## Калькулятор опыта для сборки модов [Reflyem](https://discord.gg/YjBcxfBP)
+## Калькулятор опыта для сборки модов [Reflyem](https://reflyem.ru/)
 
 ### Как пользоваться калькулятором
 
