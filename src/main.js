@@ -3,6 +3,7 @@ import races from './js/races.js';
 import stones from "./js/stones.js";
 import * as change_stats_funcs from './js/change_stats_funcs.js'
 import * as lp_calc_funcs from './js/lp_calc_funcs.js';
+import {chosen_stone} from "./js/chosen_stone.js";
 
 
 // константы для экспы
@@ -17,154 +18,13 @@ let allGoldTable = document.getElementById('allGoldTable');
 export let allLPTable = document.getElementById('allLPTable');
 
 // выбранный камень для отображения в модалке расчета
-let chosenStone = document.getElementById('chosenStone');
+export let chosenStone = document.getElementById('chosenStone');
 
 // лп за перки
 let perks_lp_cost;
 // голды за перки
 let perks_gold_cost;
 
-
-// Проверка выбранного камня
-// Получаем все radio кнопки в форме
-let radioButtons = document.getElementsByName('stoneClass');
-let lastSelectedStone; // переменная для хранения последней выбранной радиокнопки
-radioButtons.forEach(function (radioButton) {
-    radioButton.addEventListener('change', function () {
-        if (radioButton.checked) {
-            // console.log(radioButton.value);
-
-            // вычитаем 5 из поля последней выбранной кнопки (если она есть)
-            if (lastSelectedStone) {
-                switch (lastSelectedStone.value) {
-                    case 'warrior':
-                        stones.Blacksmith.value = Number(stones.Blacksmith.value) - 5;
-                        stones.OneHandedWeapon.value = Number(stones.OneHandedWeapon.value) - 5;
-                        stones.HeavyArmor.value = Number(stones.HeavyArmor.value) - 5;
-                        stones.TwoHandedWeapon.value = Number(stones.TwoHandedWeapon.value) - 5;
-                        stones.Shooting.value = Number(stones.Shooting.value) - 5;
-                        stones.Blocking.value = Number(stones.Blocking.value) - 5;
-                        break;
-                    case 'mage':
-                        // здесь нужно написать вычитание 5 из полей для случая "mage"
-                        stones.Illusion.value = Number(stones.Illusion.value) - 5;
-                        stones.Destruction.value = Number(stones.Destruction.value) - 5;
-                        stones.Witchcraft.value = Number(stones.Witchcraft.value) - 5;
-                        stones.Recovery.value = Number(stones.Recovery.value) - 5;
-                        stones.Change.value = Number(stones.Change.value) - 5;
-                        stones.Enchantment.value = Number(stones.Enchantment.value) - 5;
-                        break;
-                    case 'thief':
-                        // здесь нужно написать вычитание 5 из полей для случая "rogue"
-                        stones.Evasion.value = Number(stones.Evasion.value) - 5;
-                        stones.Stealth.value = Number(stones.Stealth.value) - 5;
-                        stones.Breaking.value = Number(stones.Breaking.value) - 5;
-                        stones.Pickpocketing.value = Number(stones.Pickpocketing.value) - 5;
-                        stones.Speech.value = Number(stones.Speech.value) - 5;
-                        stones.Alchemy.value = Number(stones.Alchemy.value) - 5;
-                        break;
-                    case 'stoneAnother':
-                        // здесь нужно написать вычитание 5 из полей для случая "rogue"
-                        stones.Evasion.value = Number(stones.Evasion.value) - 5;
-                        stones.Stealth.value = Number(stones.Stealth.value) - 5;
-                        stones.Breaking.value = Number(stones.Breaking.value) - 5;
-                        stones.Pickpocketing.value = Number(stones.Pickpocketing.value) - 5;
-                        stones.Speech.value = Number(stones.Speech.value) - 5;
-                        stones.Alchemy.value = Number(stones.Alchemy.value) - 5;
-
-                        // здесь нужно написать вычитание 5 из полей для случая "mage"
-                        stones.Illusion.value = Number(stones.Illusion.value) - 5;
-                        stones.Destruction.value = Number(stones.Destruction.value) - 5;
-                        stones.Witchcraft.value = Number(stones.Witchcraft.value) - 5;
-                        stones.Recovery.value = Number(stones.Recovery.value) - 5;
-                        stones.Change.value = Number(stones.Change.value) - 5;
-                        stones.Enchantment.value = Number(stones.Enchantment.value) - 5;
-
-                        stones.Blacksmith.value = Number(stones.Blacksmith.value) - 5;
-                        stones.OneHandedWeapon.value = Number(stones.OneHandedWeapon.value) - 5;
-                        stones.HeavyArmor.value = Number(stones.HeavyArmor.value) - 5;
-                        stones.TwoHandedWeapon.value = Number(stones.TwoHandedWeapon.value) - 5;
-                        stones.Shooting.value = Number(stones.Shooting.value) - 5;
-                        stones.Blocking.value = Number(stones.Blocking.value) - 5;
-
-                        break;
-                }
-            }
-            // добавляем 5 к полю выбранной кнопки
-            switch (radioButton.value) {
-                case 'warrior':
-                    chosenStone.innerText = 'Воин';
-                    chosenStone.classList.remove('text-danger');
-                    chosenStone.classList.add('text-success');
-                    stones.Blacksmith.value = Number(stones.Blacksmith.value) + 5;
-                    stones.OneHandedWeapon.value = Number(stones.OneHandedWeapon.value) + 5;
-                    stones.HeavyArmor.value = Number(stones.HeavyArmor.value) + 5;
-                    stones.TwoHandedWeapon.value = Number(stones.TwoHandedWeapon.value) + 5;
-                    stones.Shooting.value = Number(stones.Shooting.value) + 5;
-                    stones.Blocking.value = Number(stones.Blocking.value) + 5;
-                    break;
-                case 'mage':
-                    // здесь нужно написать добавление 5 к полям для случая "mage"
-                    chosenStone.innerText = 'Маг';
-                    chosenStone.classList.remove('text-danger');
-                    chosenStone.classList.add('text-success');
-                    stones.Illusion.value = Number(stones.Illusion.value) + 5;
-                    stones.Destruction.value = Number(stones.Destruction.value) + 5;
-                    stones.Witchcraft.value = Number(stones.Witchcraft.value) + 5;
-                    stones.Recovery.value = Number(stones.Recovery.value) + 5;
-                    stones.Change.value = Number(stones.Change.value) + 5;
-                    stones.Enchantment.value = Number(stones.Enchantment.value) + 5;
-                    break;
-                case 'thief':
-                    // здесь нужно написать добавление 5 к полям для случая "rogue"
-                    chosenStone.innerText = 'Вор';
-                    chosenStone.classList.remove('text-danger');
-                    chosenStone.classList.add('text-success');
-                    stones.Evasion.value = Number(stones.Evasion.value) + 5;
-                    stones.Stealth.value = Number(stones.Stealth.value) + 5;
-                    stones.Breaking.value = Number(stones.Breaking.value) + 5;
-                    stones.Pickpocketing.value = Number(stones.Pickpocketing.value) + 5;
-                    stones.Speech.value = Number(stones.Speech.value) + 5;
-                    stones.Alchemy.value = Number(stones.Alchemy.value) + 5;
-                    break;
-                case 'stoneAnother':
-                    // здесь нужно написать добавление 5 к полям для случая "rogue"
-                    chosenStone.innerText = 'Вор';
-                    chosenStone.classList.remove('text-danger');
-                    chosenStone.classList.add('text-success');
-                    stones.Evasion.value = Number(stones.Evasion.value) + 5;
-                    stones.Stealth.value = Number(stones.Stealth.value) + 5;
-                    stones.Breaking.value = Number(stones.Breaking.value) + 5;
-                    stones.Pickpocketing.value = Number(stones.Pickpocketing.value) + 5;
-                    stones.Speech.value = Number(stones.Speech.value) + 5;
-                    stones.Alchemy.value = Number(stones.Alchemy.value) + 5;
-
-                    // здесь нужно написать добавление 5 к полям для случая "mage"
-                    chosenStone.innerText = 'Маг';
-                    chosenStone.classList.remove('text-danger');
-                    chosenStone.classList.add('text-success');
-                    stones.Illusion.value = Number(stones.Illusion.value) + 5;
-                    stones.Destruction.value = Number(stones.Destruction.value) + 5;
-                    stones.Witchcraft.value = Number(stones.Witchcraft.value) + 5;
-                    stones.Recovery.value = Number(stones.Recovery.value) + 5;
-                    stones.Change.value = Number(stones.Change.value) + 5;
-                    stones.Enchantment.value = Number(stones.Enchantment.value) + 5;
-
-                    chosenStone.innerText = 'Воин';
-                    chosenStone.classList.remove('text-danger');
-                    chosenStone.classList.add('text-success');
-                    stones.Blacksmith.value = Number(stones.Blacksmith.value) + 5;
-                    stones.OneHandedWeapon.value = Number(stones.OneHandedWeapon.value) + 5;
-                    stones.HeavyArmor.value = Number(stones.HeavyArmor.value) + 5;
-                    stones.TwoHandedWeapon.value = Number(stones.TwoHandedWeapon.value) + 5;
-                    stones.Shooting.value = Number(stones.Shooting.value) + 5;
-                    stones.Blocking.value = Number(stones.Blocking.value) + 5;
-                    break;
-            }
-            lastSelectedStone = radioButton; // сохраняем текущую кнопку в lastSelected
-        }
-    });
-});
 
 
 // формула расчета лп
@@ -229,6 +89,7 @@ function calculate() {
         return console.log('error');
     }
 }
+
 
 // расчет всех ячеек с лп с таблицы
 function getAllLPFromTable() {
@@ -298,10 +159,9 @@ function calcLpAndGold(currentSkillValue, countValue, needLp, needGold) {
     needLp.innerHTML = CalculateLPCost(Number(currentSkillValue), minus);
     needGold.innerHTML = CalculateGCost(Number(currentSkillValue), minus);
 }
-
+chosen_stone();
 function formula() {
 
-    // расчет лп + золота воин
     calcLpAndGold(stones.Blacksmith.value, stones.BlacksmithValue.value, stones.needLPBlacksmith, stones.needGoldBlacksmith);
     calcLpAndGold(stones.OneHandedWeapon.value, stones.OneHandedWeaponValue.value, stones.needLPOneHandedWeapon, stones.needGoldOneHandedWeapon);
     calcLpAndGold(stones.HeavyArmor.value, stones.HeavyArmorValue.value, stones.needLPHeavyArmor, stones.needGoldHeavyArmor);
@@ -332,8 +192,10 @@ function formula() {
     getAllLPFromTable();
     // расчет всех ячеек с золотом со всей таблицы
     getAllGoldFromTable();
-
+    // расчет уровня исходя из количества лп
     lp_calc_funcs.calculate_needed_lvl();
+
+
 }
 
 races.raceArgo.addEventListener('click', change_stats_funcs.changeArgoStats);
