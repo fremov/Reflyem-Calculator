@@ -23,7 +23,7 @@
 </head>
 
 
-<body class="bg-dark mt-5 bg-image" style="background-image: url('src/img/541231.png')">
+<body class="bg-dark mt-5 bg-image">
 
 <!--Выбор расы(кнопка)-->
 <div class="d-flex justify-content-evenly w-100 mb-3 pt-3 mt-2">
@@ -334,7 +334,7 @@
     <!-- Modal -->
     <div class="modal fade modal-xl" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header" style="background-color: rgb(255, 229, 153)">
                     <h5 class="modal-title fw-bold text-dark" id="exampleModalLabel1">Итоги</h5>
@@ -355,13 +355,16 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <th class="fw-bold border border-3 border-dark text-danger text-center" scope="row"
+                            <th class="fw-bold border border-3 border-dark text-danger text-center" style="width: 25%"
+                                scope="row"
                                 id="chosenRace">Не выбрано
                             </th>
-                            <td class="fw-bold border border-3 border-dark text-danger text-center" id="chosenStone">Не
+                            <td class="fw-bold border border-3 border-dark text-danger text-center" style="width: 25%"
+                                id="chosenStone">Не
                                 выбрано
                             </td>
-                            <td class="fw-bold border border-3 border-dark text-danger text-center" id="chosenLevel">Не
+                            <td class="fw-bold border border-3 border-dark text-danger text-center" style="width: 25%"
+                                id="chosenLevel">Не
                                 выбрано
                             </td>
 
@@ -369,14 +372,18 @@
                         <tr>
                         </tbody>
                     </table>
-                    <table class="table table-bordered border border-5 border-dark text-dark"
+                    <table class="table table-bordered border border-5 border-dark text-dark table-sm"
                            style="background-color: rgb(217, 210, 233)">
                         <tr>
-                            <th scope="col" class="fw-bold border border-3 border-dark text-center">Очки способностей
+                            <th scope="col" class="fw-bold border border-3 border-dark text-center" style="width: 25%">
+                                Очки способностей
                             </th>
-                            <th scope="col" class="fw-bold border border-3 border-dark text-center">Необходимо золота
+                            <th scope="col" class="fw-bold border border-3 border-dark text-center" style="width: 25%">
+                                Необходимо золота
                             </th>
-                            <th scope="col" class="fw-bold border border-3 border-dark text-center">Нужно уровней</th>
+                            <th scope="col" class="fw-bold border border-3 border-dark text-center" style="width: 25%">
+                                Нужно уровней
+                            </th>
                         </tr>
                         <tr>
                             <td class="fw-bold border border-3 border-dark text-danger text-center" id="allLPTable">0
@@ -433,19 +440,20 @@
             <th scope="row" class="text-dark mw-100 text-center fw-bold border border-3 border-dark"
                 style="background-color: rgb(207, 226, 243)">Текущее значение навыка
             </th>
-            <td class="border border-3 border-dark" style="background-color: rgb(217, 210, 233)"><label
-                    for="Blacksmith"><input class="border-0 text-center </label>
+            <td class="border border-3 border-dark" style="background-color: rgb(217, 210, 233)">
+                  <input class="border-0 text-center>
 
 
 
 "
 
-                                                    id="Blacksmith"
-                                                    value="0"
-                                                    aria-valuemin="0"
-                                                    aria-valuemax="100"
-                                                    type="number">
+                                            id="Blacksmith"
+                                            value="0"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"
+                                            type="number">
             </td>
+
             <td class="border border-3 border-dark" style="background-color: rgb(217, 210, 233)"><input
                     class="border-0 text-center"
                     id="OneHandedWeapon"
