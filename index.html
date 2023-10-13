@@ -256,6 +256,14 @@
                     </label>
                 </div>
             </li>
+            <li>
+                <div class="form-check ms-4">
+                    <input class="form-check-input" type="radio" name="stoneClass" id="stoneAnother" value="another">
+                    <label class="form-check-label" for="stoneAnother">
+                        Другой
+                    </label>
+                </div>
+            </li>
         </ul>
     </div>
     <!--Выбор камня(кнопка)-->
@@ -312,7 +320,9 @@
     <!--Выбор количества LP(кнопка)-->
 
     <!--Перки-->
-    <input type="number" class="input" placeholder="Количество перков" id="numPerks" name="numPerks" value="0">
+    <label for="numPerks">
+        <input type="number" class="input" placeholder="Количество перков" id="numPerks" name="numPerks" value="0">
+    </label>
 
 
     <!--кнопка рассчитать-->
@@ -423,17 +433,18 @@
             <th scope="row" class="text-dark mw-100 text-center fw-bold border border-3 border-dark"
                 style="background-color: rgb(207, 226, 243)">Текущее значение навыка
             </th>
-            <td class="border border-3 border-dark" style="background-color: rgb(217, 210, 233)"><input class="border-0 text-center
+            <td class="border border-3 border-dark" style="background-color: rgb(217, 210, 233)"><label
+                    for="Blacksmith"><input class="border-0 text-center </label>
 
 
 
 "
 
-                                                                                                        id="Blacksmith"
-                                                                                                        value="0"
-                                                                                                        aria-valuemin="0"
-                                                                                                        aria-valuemax="100"
-                                                                                                        type="number">
+                                                    id="Blacksmith"
+                                                    value="0"
+                                                    aria-valuemin="0"
+                                                    aria-valuemax="100"
+                                                    type="number">
             </td>
             <td class="border border-3 border-dark" style="background-color: rgb(217, 210, 233)"><input
                     class="border-0 text-center"
