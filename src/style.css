@@ -2,3 +2,52 @@
     font-size: 16px!important;
 
 }
+
+/* Тёмная тема */
+body {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Стили для кнопок */
+.btn {
+    background-color: #4c9bfb;
+    border-color: #4c9bfb;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #3a82da;
+    border-color: #3a82da;
+}
+
+/* Стили для модальных окон */
+.modal-content {
+    background-color: #555;
+    color: #fff;
+}
+
+.modal-header {
+    background-color: #444;
+    color: #fff;
+}
+
+.modal-footer {
+    background-color: #444;
+    color: #fff;
+}
+
+/* Стили для выпадающих меню (дополнительное меню) */
+.dropdown-menu {
+    background-color: #555;
+    color: #fff;
+}
+
+.dropdown-item {
+    color: #fff;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: #444;
+}
