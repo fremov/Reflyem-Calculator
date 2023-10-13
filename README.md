@@ -6,10 +6,10 @@
 1. Выбираем нужную расу персонажа:
 > ![image](https://github.com/fremov/Calculator/assets/59342062/002edfc7-30e9-478d-8843-03516d2fc8ec)
 2. Выбираем нужный камень для персонажа
-> ![image](https://github.com/fremov/Calculator/assets/59342062/44e40d88-02f2-4725-b43a-be4a6cdd6df3)
+> ![insruction2](https://github.com/fremov/Reflyem-Calculator/assets/59342062/66a73049-1182-487d-92a4-7c34ee1d08b7)
 
 > Если камень не: 'Вор', 'Воин', 'Маг',
->тогда этот пункт пропускаем, посколько другие камни никак не повлияют на вычисления
+> тогда можно выбрать 'Другой' или ничего не трогать, это никак не повлияет на вычисления
 3. Выбираем нужный уровень сложности:
 > ![image](https://github.com/fremov/Calculator/assets/59342062/5bedb5db-9571-41a1-9bbb-46a06ecb8c4d)
 4. Выбираем нужное количество перков:
