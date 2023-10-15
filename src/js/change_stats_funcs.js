@@ -1,4 +1,4 @@
-import stones from "./stones.js";
+import stones from "./table_fields.js";
 
 //выбранная раса для отображения в модалке расчета
 export let chosenRace = document.getElementById('chosenRace');

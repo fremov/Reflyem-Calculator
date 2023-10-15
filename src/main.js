@@ -1,9 +1,9 @@
 'use strict';
 import races from './js/races.js';
-import stones from "./js/stones.js";
 import * as change_stats_funcs from './js/change_stats_funcs.js'
 import * as lp_calc_funcs from './js/lp_calc_funcs.js';
-import {chosen_stone} from "./js/chosen_stone.js";
+import {chosen_stone, studentStoneBonusLp} from "./js/chosen_stone.js";
+import table_fields from "./js/table_fields.js";
 
 
 // константы для экспы
@@ -90,31 +90,30 @@ function calculate() {
     }
 }
 
-
 // расчет всех ячеек с лп с таблицы
 function getAllLPFromTable() {
     allGoldTable.innerHTML =
-        Number(stones.needGoldBlacksmith.innerHTML)
-        + Number(stones.needGoldHeavyArmor.innerHTML)
-        + Number(stones.needGoldTwoHandedWeapon.innerHTML)
-        + Number(stones.needGoldOneHandedWeapon.innerHTML)
-        + Number(stones.needGoldShooting.innerHTML)
-        + Number(stones.needGoldBlocking.innerHTML)
+        String(Number(table_fields.needGoldBlacksmith.innerHTML)
+        + Number(table_fields.needGoldHeavyArmor.innerHTML)
+        + Number(table_fields.needGoldTwoHandedWeapon.innerHTML)
+        + Number(table_fields.needGoldOneHandedWeapon.innerHTML)
+        + Number(table_fields.needGoldShooting.innerHTML)
+        + Number(table_fields.needGoldBlocking.innerHTML)
 
-        + Number(stones.needGoldEvasion.innerHTML)
-        + Number(stones.needGoldStealth.innerHTML)
-        + Number(stones.needGoldBreaking.innerHTML)
-        + Number(stones.needGoldPickpocketing.innerHTML)
-        + Number(stones.needGoldSpeech.innerHTML)
-        + Number(stones.needGoldAlchemy.innerHTML)
+        + Number(table_fields.needGoldEvasion.innerHTML)
+        + Number(table_fields.needGoldStealth.innerHTML)
+        + Number(table_fields.needGoldBreaking.innerHTML)
+        + Number(table_fields.needGoldPickpocketing.innerHTML)
+        + Number(table_fields.needGoldSpeech.innerHTML)
+        + Number(table_fields.needGoldAlchemy.innerHTML)
 
-        + Number(stones.needGoldDestruction.innerHTML)
-        + Number(stones.needGoldIllusion.innerHTML)
-        + Number(stones.needGoldWitchcraft.innerHTML)
-        + Number(stones.needGoldRecovery.innerHTML)
-        + Number(stones.needGoldChange.innerHTML)
-        + Number(stones.needGoldEnchantment.innerHTML)
-        + Number(perks_gold_cost);
+        + Number(table_fields.needGoldDestruction.innerHTML)
+        + Number(table_fields.needGoldIllusion.innerHTML)
+        + Number(table_fields.needGoldWitchcraft.innerHTML)
+        + Number(table_fields.needGoldRecovery.innerHTML)
+        + Number(table_fields.needGoldChange.innerHTML)
+        + Number(table_fields.needGoldEnchantment.innerHTML)
+        + Number(perks_gold_cost));
 
     if (allGoldTable.innerHTML > 0) {
         allGoldTable.classList.remove('text-danger');
@@ -125,31 +124,32 @@ function getAllLPFromTable() {
 // расчет всех ячеек с золотом с таблицы
 function getAllGoldFromTable() {
     allLPTable.innerHTML =
-        Number(stones.needLPBlacksmith.innerHTML)
-        + Number(stones.needLPHeavyArmor.innerHTML)
-        + Number(stones.needLPTwoHandedWeapon.innerHTML)
-        + Number(stones.needLPOneHandedWeapon.innerHTML)
-        + Number(stones.needLPShooting.innerHTML)
-        + Number(stones.needLPBlocking.innerHTML)
-        + Number(stones.needLPEvasion.innerHTML)
-        + Number(stones.needLPStealth.innerHTML)
-        + Number(stones.needLPBreaking.innerHTML)
-        + Number(stones.needLPPickpocketing.innerHTML)
-        + Number(stones.needLPSpeech.innerHTML)
-        + Number(stones.needLPAlchemy.innerHTML)
+        String(Number(table_fields.needLPBlacksmith.innerHTML)
+        + Number(table_fields.needLPHeavyArmor.innerHTML)
+        + Number(table_fields.needLPTwoHandedWeapon.innerHTML)
+        + Number(table_fields.needLPOneHandedWeapon.innerHTML)
+        + Number(table_fields.needLPShooting.innerHTML)
+        + Number(table_fields.needLPBlocking.innerHTML)
+        + Number(table_fields.needLPEvasion.innerHTML)
+        + Number(table_fields.needLPStealth.innerHTML)
+        + Number(table_fields.needLPBreaking.innerHTML)
+        + Number(table_fields.needLPPickpocketing.innerHTML)
+        + Number(table_fields.needLPSpeech.innerHTML)
+        + Number(table_fields.needLPAlchemy.innerHTML)
 
-        + Number(stones.needLPDestruction.innerHTML)
-        + Number(stones.needLPIllusion.innerHTML)
-        + Number(stones.needLPWitchcraft.innerHTML)
-        + Number(stones.needLPRecovery.innerHTML)
-        + Number(stones.needLPChange.innerHTML)
-        + Number(stones.needLPEnchantment.innerHTML)
-        + Number(perks_lp_cost);
+        + Number(table_fields.needLPDestruction.innerHTML)
+        + Number(table_fields.needLPIllusion.innerHTML)
+        + Number(table_fields.needLPWitchcraft.innerHTML)
+        + Number(table_fields.needLPRecovery.innerHTML)
+        + Number(table_fields.needLPChange.innerHTML)
+        + Number(table_fields.needLPEnchantment.innerHTML)
+        + Number(perks_lp_cost));
 
     if (allLPTable.innerHTML > 0) {
         allLPTable.classList.remove('text-danger');
         allLPTable.classList.add('text-success');
     }
+    console.log(studentStoneBonusLp)
 
 }
 
@@ -162,28 +162,28 @@ function calcLpAndGold(currentSkillValue, countValue, needLp, needGold) {
 chosen_stone();
 function formula() {
 
-    calcLpAndGold(stones.Blacksmith.value, stones.BlacksmithValue.value, stones.needLPBlacksmith, stones.needGoldBlacksmith);
-    calcLpAndGold(stones.OneHandedWeapon.value, stones.OneHandedWeaponValue.value, stones.needLPOneHandedWeapon, stones.needGoldOneHandedWeapon);
-    calcLpAndGold(stones.HeavyArmor.value, stones.HeavyArmorValue.value, stones.needLPHeavyArmor, stones.needGoldHeavyArmor);
-    calcLpAndGold(stones.TwoHandedWeapon.value, stones.TwoHandedWeaponValue.value, stones.needLPTwoHandedWeapon, stones.needGoldTwoHandedWeapon);
-    calcLpAndGold(stones.Shooting.value, stones.ShootingValue.value, stones.needLPShooting, stones.needGoldShooting);
-    calcLpAndGold(stones.Blocking.value, stones.BlockingValue.value, stones.needLPBlocking, stones.needGoldBlocking);
+    calcLpAndGold(table_fields.Blacksmith.value, table_fields.BlacksmithValue.value, table_fields.needLPBlacksmith, table_fields.needGoldBlacksmith);
+    calcLpAndGold(table_fields.OneHandedWeapon.value, table_fields.OneHandedWeaponValue.value, table_fields.needLPOneHandedWeapon, table_fields.needGoldOneHandedWeapon);
+    calcLpAndGold(table_fields.HeavyArmor.value, table_fields.HeavyArmorValue.value, table_fields.needLPHeavyArmor, table_fields.needGoldHeavyArmor);
+    calcLpAndGold(table_fields.TwoHandedWeapon.value, table_fields.TwoHandedWeaponValue.value, table_fields.needLPTwoHandedWeapon, table_fields.needGoldTwoHandedWeapon);
+    calcLpAndGold(table_fields.Shooting.value, table_fields.ShootingValue.value, table_fields.needLPShooting, table_fields.needGoldShooting);
+    calcLpAndGold(table_fields.Blocking.value, table_fields.BlockingValue.value, table_fields.needLPBlocking, table_fields.needGoldBlocking);
 
     // расчет лп + золота вор
-    calcLpAndGold(stones.Evasion.value, stones.EvasionValue.value, stones.needLPEvasion, stones.needGoldEvasion);
-    calcLpAndGold(stones.Stealth.value, stones.StealthValue.value, stones.needLPStealth, stones.needGoldStealth);
-    calcLpAndGold(stones.Breaking.value, stones.BreakingValue.value, stones.needLPBreaking, stones.needGoldBreaking);
-    calcLpAndGold(stones.Pickpocketing.value, stones.PickpocketingValue.value, stones.needLPPickpocketing, stones.needGoldPickpocketing);
-    calcLpAndGold(stones.Speech.value, stones.SpeechValue.value, stones.needLPSpeech, stones.needGoldSpeech);
-    calcLpAndGold(stones.Alchemy.value, stones.AlchemyValue.value, stones.needLPAlchemy, stones.needGoldAlchemy);
+    calcLpAndGold(table_fields.Evasion.value, table_fields.EvasionValue.value, table_fields.needLPEvasion, table_fields.needGoldEvasion);
+    calcLpAndGold(table_fields.Stealth.value, table_fields.StealthValue.value, table_fields.needLPStealth, table_fields.needGoldStealth);
+    calcLpAndGold(table_fields.Breaking.value, table_fields.BreakingValue.value, table_fields.needLPBreaking, table_fields.needGoldBreaking);
+    calcLpAndGold(table_fields.Pickpocketing.value, table_fields.PickpocketingValue.value, table_fields.needLPPickpocketing, table_fields.needGoldPickpocketing);
+    calcLpAndGold(table_fields.Speech.value, table_fields.SpeechValue.value, table_fields.needLPSpeech, table_fields.needGoldSpeech);
+    calcLpAndGold(table_fields.Alchemy.value, table_fields.AlchemyValue.value, table_fields.needLPAlchemy, table_fields.needGoldAlchemy);
 
     // расчет лп + золота маг
-    calcLpAndGold(stones.Illusion.value, stones.IllusionValue.value, stones.needLPIllusion, stones.needGoldIllusion);
-    calcLpAndGold(stones.Destruction.value, stones.DestructionValue.value, stones.needLPDestruction, stones.needGoldDestruction);
-    calcLpAndGold(stones.Witchcraft.value, stones.WitchcraftValue.value, stones.needLPWitchcraft, stones.needGoldWitchcraft);
-    calcLpAndGold(stones.Recovery.value, stones.RecoveryValue.value, stones.needLPRecovery, stones.needGoldRecovery);
-    calcLpAndGold(stones.Change.value, stones.ChangeValue.value, stones.needLPChange, stones.needGoldChange);
-    calcLpAndGold(stones.Enchantment.value, stones.EnchantmentValue.value, stones.needLPEnchantment, stones.needGoldEnchantment);
+    calcLpAndGold(table_fields.Illusion.value, table_fields.IllusionValue.value, table_fields.needLPIllusion, table_fields.needGoldIllusion);
+    calcLpAndGold(table_fields.Destruction.value, table_fields.DestructionValue.value, table_fields.needLPDestruction, table_fields.needGoldDestruction);
+    calcLpAndGold(table_fields.Witchcraft.value, table_fields.WitchcraftValue.value, table_fields.needLPWitchcraft, table_fields.needGoldWitchcraft);
+    calcLpAndGold(table_fields.Recovery.value, table_fields.RecoveryValue.value, table_fields.needLPRecovery, table_fields.needGoldRecovery);
+    calcLpAndGold(table_fields.Change.value, table_fields.ChangeValue.value, table_fields.needLPChange, table_fields.needGoldChange);
+    calcLpAndGold(table_fields.Enchantment.value, table_fields.EnchantmentValue.value, table_fields.needLPEnchantment, table_fields.needGoldEnchantment);
 
 
     // перки

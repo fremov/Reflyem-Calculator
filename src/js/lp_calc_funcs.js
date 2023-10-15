@@ -1,10 +1,10 @@
-import {allLPTable} from "../main.js";
+import {allLPTable, chosenStone} from "../main.js";
 
 
 // выбранный уровень сложности 10 15 20 dynamic
-export let tenLP = document.getElementById('tenLP');
-export let fifteenLp = document.getElementById('fifteenLp');
-export let twentyLp = document.getElementById('twentyLP');
+// export let tenLP = document.getElementById('tenLP');
+// export let fifteenLp = document.getElementById('fifteenLp');
+// export let twentyLp = document.getElementById('twentyLP');
 // export let dynamicLP = document.getElementById('dynamicLP');
 
 export let needLvlForUp = 0;
@@ -19,66 +19,41 @@ export let chosenLevel = document.getElementById('chosenLevel');
 const radio1 = document.getElementById('tenLP');
 const radio2 = document.getElementById('fifteenLp');
 const radio3 = document.getElementById('twentyLP');
+
 // Обработчик события изменения состояния radio button
 function handleRadioChange() {
+    const lpSetting = getLPSetting()
 
-    // Используем switch оператор для определения значения в зависимости от выбранного radio button
+    needLvlForUp = Math.ceil(Number(allLPTable.innerHTML) / lpSetting);
+    if (needLvlForUp > 0) {
+        if (chosenStone.innerText === 'Ученик') {
+            chosenLevel.innerText = String(`${lpSetting - 1}LP`);
+
+        } else {
+            chosenLevel.innerText = String(`${lpSetting}LP`);
+        }
+        chosenLevel.classList.remove('text-danger');
+        chosenLevel.classList.add('text-success');
+    }
+    if (needLvlForUp > 0) {
+        needLvlForUpF.innerHTML = needLvlForUp;
+        needLvlForUpF.classList.remove('text-danger');
+        needLvlForUpF.classList.add('text-success');
+    }
+}
+
+function getLPSetting() {
+    const base = chosenStone.innerText === "Ученик" ? 1 : 0;
     switch (true) {
         case radio1.checked:
-            needLvlForUp = Math.ceil(Number(allLPTable.innerHTML) / 10);
-            if (needLvlForUp > 0){
-                chosenLevel.innerText = '10LP';
-                chosenLevel.classList.remove('text-danger');
-                chosenLevel.classList.add('text-success');
-            }
-            if (needLvlForUp > 0) {
-                needLvlForUpF.innerHTML = needLvlForUp;
-                needLvlForUpF.classList.remove('text-danger');
-                needLvlForUpF.classList.add('text-success');
-            }
-            break;
+            return base + 10;
         case radio2.checked:
-            needLvlForUp = Math.ceil(Number(allLPTable.innerHTML) / 15);
-            if (needLvlForUp > 0){
-                chosenLevel.innerText = '15LP';
-                chosenLevel.classList.remove('text-danger');
-                chosenLevel.classList.add('text-success');
-            }
-            if (needLvlForUp > 0) {
-                needLvlForUpF.innerHTML = needLvlForUp;
-                needLvlForUpF.classList.remove('text-danger');
-                needLvlForUpF.classList.add('text-success');
-            }
-            break;
+            return base + 15;
         case radio3.checked:
-            needLvlForUp = Math.ceil(Number(allLPTable.innerHTML) / 20);
-            if (needLvlForUp > 0){
-                chosenLevel.innerText = '20LP';
-                chosenLevel.classList.remove('text-danger');
-                chosenLevel.classList.add('text-success');
-            }
-            if (needLvlForUp > 0) {
-                needLvlForUpF.innerHTML = needLvlForUp;
-                needLvlForUpF.classList.remove('text-danger');
-                needLvlForUpF.classList.add('text-success');
-            }
-            break;
+            return base + 20;
         default:
-            needLvlForUp = Math.ceil(Number(allLPTable.innerHTML) / 15);
-
-            if (needLvlForUp > 0){
-                chosenLevel.innerText = '15LP';
-                chosenLevel.classList.remove('text-danger');
-                chosenLevel.classList.add('text-success');
-            }
-            if (needLvlForUp > 0) {
-                needLvlForUpF.innerHTML = needLvlForUp;
-                needLvlForUpF.classList.remove('text-danger');
-                needLvlForUpF.classList.add('text-success');
-            }
-            break;
+            return base + 15;
     }
-
 }
 
 // Добавляем обработчик события изменения состояния для каждого radio button

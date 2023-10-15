@@ -1,6 +1,8 @@
-import stones from "./stones.js";
-import {chosenStone} from "../main.js";
+import stones from "./table_fields.js";
+import {allLPTable, chosenStone} from "../main.js";
+import {needLvlForUpF} from "./lp_calc_funcs.js";
 
+export let studentStoneBonusLp
 export function chosen_stone() {
 
 // Проверка выбранного камня
@@ -40,6 +42,10 @@ export function chosen_stone() {
                                 stones.Pickpocketing.value = Number(stones.Pickpocketing.value) - 5;
                                 stones.Speech.value = Number(stones.Speech.value) - 5;
                                 stones.Alchemy.value = Number(stones.Alchemy.value) - 5;
+                                break;
+                            case 'stoneStudent':
+                                // здесь нужно написать вычитание 5 из полей для случая "rogue"
+                                console.log('Ученик первый')
                                 break;
                             case 'stoneAnother':
                                 // здесь нужно написать добавление 5 к полям для случая "rogue"
@@ -116,6 +122,12 @@ export function chosen_stone() {
                             stones.Speech.value = Number(stones.Speech.value) + 5;
                             stones.Alchemy.value = Number(stones.Alchemy.value) + 5;
                             break;
+                        case 'stoneStudent':
+                            chosenStone.innerText = 'Ученик';
+                            chosenStone.classList.remove('text-danger');
+                            chosenStone.classList.add('text-success');
+                            studentStoneBonusLp = String(Number(allLPTable.innerText) + Number(needLvlForUpF.innerText))
+                            break
                         case 'stoneAnother':
                             // здесь нужно написать добавление 5 к полям для случая "rogue"
                             chosenStone.innerText = 'Другой';
