@@ -6,9 +6,9 @@
 1. Выбираем нужную расу персонажа:
 > ![image](https://github.com/fremov/Calculator/assets/59342062/002edfc7-30e9-478d-8843-03516d2fc8ec)
 2. Выбираем нужный камень для персонажа
-> ![insruction2](https://github.com/fremov/Reflyem-Calculator/assets/59342062/66a73049-1182-487d-92a4-7c34ee1d08b7)
+> ![image](https://github.com/fremov/Reflyem-Calculator/assets/59342062/14076a38-d1c5-4061-b503-f393de66834d)
 
-> Если камень не: 'Вор', 'Воин', 'Маг',
+> Если камень не: 'Вор', 'Воин', 'Маг','Ученик'
 > тогда можно выбрать 'Другой' или ничего не трогать, это никак не повлияет на вычисления
 3. Выбираем нужный уровень сложности:
 > ![image](https://github.com/fremov/Calculator/assets/59342062/5bedb5db-9571-41a1-9bbb-46a06ecb8c4d)
