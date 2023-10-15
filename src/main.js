@@ -77,7 +77,7 @@ function calculate() {
     let numPerksInput = document.getElementById("numPerks");
     let numPerks = parseInt(numPerksInput.value, 10);
     let perkCosts = 0;
-    if (numPerksInput.value === "0") {
+    if (numPerksInput.value === "0" || numPerksInput.value === '') {
         // perkCosts = calculatePerksCost(numPerks);
         perks_gold_cost = 0;
         perks_lp_cost = 0
@@ -149,7 +149,7 @@ function getAllGoldFromTable() {
         allLPTable.classList.remove('text-danger');
         allLPTable.classList.add('text-success');
     }
-    console.log(studentStoneBonusLp)
+    // console.log(studentStoneBonusLp)
 
 }
 
