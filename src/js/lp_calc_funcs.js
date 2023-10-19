@@ -26,33 +26,31 @@ const content = document.getElementById('toggleHidden');
 // Обработчик события изменения состояния radio button
 function handleRadioChange() {
     const lpSetting = getLPSetting()
+    let flag = false
     if (radio4.checked) {
         content.style.display = "block";
-        console.log('radio4')
         let totalLP = Number(allLPTable.innerHTML)
         let nowLevel = Number(document.getElementById('nowLevel').value)
+        if (nowLevel > 0) {flag = true}
         while (totalLP > 0) {
             let levelLP = 15
             if (nowLevel >= 20 && nowLevel < 40) {
                 levelLP = 10
-                console.log(nowLevel)
-            }
-            else if (nowLevel >= 40) {
+            } else if (nowLevel >= 40) {
                 levelLP = 5
-                console.log(nowLevel)
             }
             totalLP -= levelLP
             nowLevel += 1
         }
         needLvlForUp = nowLevel
-    }
-    else {
+    } else {
         needLvlForUp = Math.ceil(Number(allLPTable.innerHTML) / lpSetting);
     }
     if (needLvlForUp > 0) {
         if (chosenStone.innerText === 'Ученик') {
             chosenLevel.innerText = String(`${lpSetting - 1}LP`);
-
+        } else if (flag) {
+            chosenLevel.innerText = String(`Динамическое LP`);
         } else {
             chosenLevel.innerText = String(`${lpSetting}LP`);
         }
